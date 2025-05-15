@@ -249,7 +249,7 @@ void printAsterisk(int n){
     cout << endl;
 }
 
-// C++에서는 배열이 자동으로 참조타입 매개변수로 넘어간다
+// 배열이 자동으로 참조타입 매개변수로 넘어간다
 void countAlpha(string text, int alphaCnt[]){
     int allCnt = 0;
     for(int i = 0; i < text.length(); i++){
