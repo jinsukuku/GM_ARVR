@@ -7,6 +7,7 @@
 
 using namespace std;
 
+
 // 실습문제1
 class ColorRGB{
     int r, g, b;
