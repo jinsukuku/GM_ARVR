@@ -230,3 +230,63 @@ void Family :: show(){
         cout << p[i].getName() << '\t';
     }
 }
+
+
+// 실습문제13
+class Histogram{
+    string str;
+    int sum = 0;
+    int cnt[26] = {0}; 
+
+public:
+    Histogram(){
+        str = "";
+    }
+    Histogram(string str){ 
+        this -> str = str; 
+    };
+
+    void count(string str){
+        for(char c: str){
+            if (isupper(static_cast<unsigned char>(c))) 
+                c = tolower(static_cast<unsigned char>(c));
+            
+            if (!isalpha(static_cast<unsigned char>(c))) 
+                continue;
+
+            cnt[c - 'a'] += 1;
+            sum += 1;
+        }    
+    }
+
+    void put(string str){
+        this -> str += str;
+    }
+
+    // char 타입의 경우 sum+1, cnt+1 내부에서 처리
+    void putc(char c){
+        this -> str += c;
+    }
+    
+    // print함수
+    void print(){
+        count(str);
+        cout << "총 알파벳 수 " << sum << endl << endl;
+        for(int i = 0; i < 26; i++){
+            cout << (char)('a'+i) << "(" << cnt[i] << ")\t:";
+            for(int j = 0; j < cnt[i]; j++){
+                cout << "*";
+            }
+            cout << endl;
+        }
+    }
+};
+
+int solution13(){
+    Histogram his("Wise men say, only fools rush in But I can't help, ");
+    his.put("falling in love with you");
+    his.putc('-');
+    his.put("Elvis Presley");
+    his.print();
+    return 0;
+}
